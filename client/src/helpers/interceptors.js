@@ -1,10 +1,9 @@
 import axios from "axios";
-import store from "../store/index";
 
 export default function setup() {
   axios.interceptors.request.use(
     function (config) {
-      const token = store.getters.session.token;
+      const token = window.localStorage.getItem("jwt-token");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }

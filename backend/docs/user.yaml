@@ -1,78 +1,78 @@
 tags:
- name: Users
- description: User management
+  name: Users
+  description: User management
 
 paths:
- /users/:
-   post:
-     summary: Creates a new user.
-     tags: [Users]
-     requestBody:
-       required: true
-     responses:
-       "200":
-         description: User created (returns user data).
-       "400":
-         description: Missing parameters.
-     parameters:
-       - in: query
-         name: email
-         description: Valid email address.
-         required: true
-         type: string
-       - in: query
-         name: username
-         description: Username for authentufication.
-         required: true
-         type: string
-       - in: query
-         name: password
-         description: Valid password for authentification.
-         required: true
-         type: string
- /users/:id:
-   put:
-     summary: Updates user.
-     tags: [Users]
-     requestBody:
-       required: true
-     responses:
-       "200":
-         description: User updated (returns user data).
-       "400":
-         description: User id doesn't exists.
-     parameters:
-       - in: params
-         name: id
-         description: User id.
-         required: true
-         type: string
-       - in: query
-         name: username
-         description: Data to update.
-         required: false
-         type: string
-       - in: query
-         name: email
-         description: Data to update.
-         required: false
-         type: string
+  /users/:
+    post:
+      summary: Creates a new user.
+      tags: [Users]
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: User created (returns user data).
+        "400":
+          description: Missing parameters.
+      parameters:
+        - in: query
+          name: email
+          description: Valid email address.
+          required: true
+          type: string
+        - in: query
+          name: username
+          description: Username for authentufication.
+          required: true
+          type: string
+        - in: query
+          name: password
+          description: Valid password for authentification.
+          required: true
+          type: string
+  /users/:id:
+    put:
+      summary: Updates user.
+      tags: [Users]
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: User updated (returns user data).
+        "400":
+          description: User id doesn't exists.
+      parameters:
+        - in: params
+          name: id
+          description: User id.
+          required: true
+          type: string
+        - in: query
+          name: username
+          description: Data to update.
+          required: false
+          type: string
+        - in: query
+          name: email
+          description: Data to update.
+          required: false
+          type: string
 
 path:
- /users/:id:
-   delete:
-     summary: Updates user.
-     tags: [Users]
-     requestBody:
-       required: true
-     responses:
-       "200":
-         description: User deleted.
-       "400":
-         description: User id doesn't exists.
-     parameters:
-       - in: params
-         name: id
-         description: User id.
-         required: true
-         type: string
+  /users/:id:
+    delete:
+      summary: Updates user.
+      tags: [Users]
+      requestBody:
+        required: true
+      responses:
+        "200":
+          description: User deleted.
+        "400":
+          description: User id doesn't exists.
+      parameters:
+        - in: params
+          name: id
+          description: User id.
+          required: true
+          type: string

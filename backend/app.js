@@ -2,26 +2,26 @@
  * Required External Modules
  */
 
-const express = require("express")
-const path = require("path")
-var cors = require('cors')
-var bodyParser = require('body-parser')
-const swaggerDoc = require('./config/swaggerConfig')
-const mongoDB = require('./config/mongoDBConfig')
-const cookieParser = require('cookie-parser')
+const express = require("express");
+const path = require("path");
+var cors = require("cors");
+var bodyParser = require("body-parser");
+const swaggerDoc = require("./config/swaggerConfig");
+const mongoDB = require("./config/mongoDBConfig");
+const cookieParser = require("cookie-parser");
 
 /**
  * App Variables
  */
 
-const app = express()
-const port = process.env.PORT || "8000"
+const app = express();
+const port = process.env.PORT || "8000";
 
 /**
  *  App Configuration
  */
 
-app.use(cors())
+app.use(cors());
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*")
 //   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE")
@@ -31,29 +31,28 @@ app.use(cors())
 //   next()
 // })
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-
-app.use(cookieParser())
+app.use(cookieParser());
 
 /**
  * Routes Definitions
  */
-var user = require('./routes/user.js')
-var auth = require('./routes/auth.js')
-var github = require('./routes/github.js')
+var user = require("./routes/user.js");
+var auth = require("./routes/auth.js");
+var github = require("./routes/github.js");
 
-app.use('/', auth)
-app.use('/user', user)
-app.use('/github', github)
+app.use("/", auth);
+app.use("/users", user);
+app.use("/github", github);
 
 /**
  * Server Activation
  */
 
-swaggerDoc(app)
+swaggerDoc(app);
 
 app.listen(port, () => {
-  console.log(`Listening to requests on http://localhost:${port}`)
-})
+  console.log(`Listening to requests on http://localhost:${port}`);
+});

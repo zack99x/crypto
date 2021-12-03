@@ -1,14 +1,10 @@
 import axios from "axios";
 
-export const authWithGithub = async () => {
-  axios.get("http://localhost:8080");
-  console.log("authWithGithub");
-};
-
-export const basicAuth = async (username, password) => {
+export const create_user = async (email, username, password) => {
   return await axios.post(
-    "http://localhost:8000/login",
+    "http://localhost:8000/users",
     {
+      email,
       username,
       password,
     },

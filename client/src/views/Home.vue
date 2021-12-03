@@ -67,18 +67,7 @@
         </router-link>
       </div>
     </nav>
-    <img
-      class="hidden lg:block lg:absolute top-0 left-0 mt-32"
-      src="zeus-assets/icons/dots/yellow-dot-left-bars.svg"
-      alt=""
-      data-config-id="auto-img-1"
-    />
-    <img
-      class="hidden lg:block lg:absolute bottom-0 right-0 mb-40"
-      src="zeus-assets/icons/dots/red-dot-right-shield.svg"
-      alt=""
-      data-config-id="auto-img-2"
-    />
+
     <div class="relative container px-4 pt-12 mb-20 mx-auto text-center">
       <span class="text-blue-400 font-semibold" data-config-id="label"
         >Rejoignez nous</span
