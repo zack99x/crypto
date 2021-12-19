@@ -1,0 +1,91 @@
+tags:
+ name: Cryptos
+ description: Manage cryptos
+
+paths:
+ /cryptos:
+   get:
+     summary: Gets cryptos informations.
+     tags: [Cryptos]
+     requestBody:
+       required: true
+     responses:
+       "200":
+         description: Returns cryptos informations.
+       "400":
+         description: An error occured.
+     parameters:
+       - in: query
+         name: cmids
+         description: Cryptos symbols(format is ['BTC', ..])
+         required: true
+         type: array
+       - in: query
+         name: crids
+         description: Optionnal, by default currency is EUR (format is ['CUR', ..])
+         required: false
+         type: array
+   post:
+     summary: Adds a new crypto to the platform (needs to be ADMIN).
+     tags: [Cryptos]
+     requestBody:
+       required: true
+     responses:
+       "200":
+         description: Crypto added.
+       "400":
+         description: An error occured.
+     parameters:
+       - in: query
+         name: id
+         description: Crypto code
+         required: true
+         type: string
+       - in: query
+         name: full_name
+         description: Crypto full name
+         required: true
+         type: string
+       - in: query
+         name: image_url
+         description: Crypto image url
+         required: true
+         type: string
+ /cryptos/:id:
+   get:
+     summary: Gets one crypto informations.
+     tags: [Cryptos]
+     requestBody:
+       required: false
+     responses:
+       "200":
+         description: Returns crypto informations.
+       "400":
+         description: An error occured.
+     parameters:
+       - in: params
+         name: id
+         description: Crypto symbol
+         required: true
+         type: array
+       - in: query
+         name: crids
+         description: Optionnal, by default currency is EUR (format is ['CUR', ..])
+         required: false
+         type: array
+   delete:
+     summary: Deletes crypto (needs to be ADMIN).
+     tags: [Cryptos]
+     requestBody:
+       required: true
+     responses:
+       "200":
+         description: Crypto deleted.
+       "400":
+         description: Crypto doesn't exists.
+     parameters:
+       - in: params
+         name: id
+         description: Crypto id.
+         required: true
+         type: string

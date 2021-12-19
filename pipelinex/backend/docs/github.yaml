@@ -1,0 +1,16 @@
+tags:
+ name: Github
+ description: Oauth2 with Github
+
+paths:
+ /github:
+   get:
+     summary: Sends data to access github authorization page.
+     tags: [Github]
+     requestBody:
+       required: false
+     responses:
+       "200":
+         description: Returns client id and scope to include in the redirection to github authorization page https://github.com/login/oauth/authorize (add client_id and scope)
+       "400":
+         description: An error occured.
